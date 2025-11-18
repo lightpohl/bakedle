@@ -1,0 +1,112 @@
+.header {
+  padding: 8px 16px;
+  margin-bottom: 32px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+}
+
+.nav > ul {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  list-style: none;
+}
+
+.nav > ul > li {
+  padding: 4px;
+  text-transform: uppercase;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  font-size: 2rem;
+  font-weight: bolder;
+  line-height: 1;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav > ul > li + li {
+  margin-left: 8px;
+}
+
+.nav > ul > li > a {
+  color: black;
+  display: block;
+  padding: 4px 8px;
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+.nav > ul > li > a:hover,
+.nav > ul > li > a:visited,
+.nav > ul > li > a:focus {
+  color: black;
+}
+
+.nav > ul > li > button {
+  all: unset;
+  box-sizing: border-box;
+  display: block;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.nav > ul > li:focus-within {
+  transform: scale(1.05);
+}
+
+.nav > ul > li:focus-within {
+  outline: 2px solid var(--color-primary-hex);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer {
+  margin-top: 128px;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.footer a {
+  color: var(--color-primary-hex);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav > ul > li:hover {
+    transform: scale(1.05);
+  }
+
+  .footer a:hover {
+    color: red;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .nav > ul > li {
+    background: #111;
+    border: 1px solid white;
+  }
+
+  .nav > ul > li > a,
+  .nav > ul > li > a:hover,
+  .nav > ul > li > a:visited,
+  .nav > ul > li > a:focus {
+    color: white;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .nav > ul > li:hover,
+  .nav > ul > li:focus-within {
+    transform: none;
+  }
+}

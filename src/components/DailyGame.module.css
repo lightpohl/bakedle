@@ -1,0 +1,71 @@
+.actionsWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 240px;
+}
+
+.numPadWrapper {
+  flex: 1;
+  margin-top: 16px;
+}
+
+.bakeButtonWrapper {
+  display: flex;
+  width: 100%;
+
+  margin-top: 16px;
+}
+
+.bakeButtonWrapper > button {
+  all: unset;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  background: var(--color-primary-hex);
+  border-radius: var(--border-radius);
+  padding: 16px 32px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  transition:
+    color 0.3s ease-in-out,
+    transform 0.3s ease-in-out,
+    background 0.3s ease-in-out;
+  box-shadow: var(--box-shadow);
+  font-weight: bolder;
+}
+
+.bakeButtonWrapper > button:focus-visible {
+  transform: rotate(3deg);
+}
+
+.bakeButtonWrapper > button:disabled {
+  transform: none;
+  background: #dfdfdf;
+  cursor: not-allowed;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .bakeButtonWrapper > button:hover {
+    transform: rotate(3deg);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .bakeButtonWrapper > button {
+    color: black;
+  }
+
+  .bakeButtonWrapper > button:disabled {
+    color: white;
+    background: #333;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .bakeButtonWrapper > button,
+  .bakeButtonWrapper > button:hover,
+  .bakeButtonWrapper > button:focus-visible {
+    transform: none;
+  }
+}

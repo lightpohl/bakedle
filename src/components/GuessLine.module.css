@@ -1,0 +1,53 @@
+.guess {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 42px;
+  padding: 8px;
+  border: 2px solid transparent;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: border-color 0.3s ease-in-out;
+  font-weight: bolder;
+}
+
+.guess + .guess {
+  margin-top: 4px;
+}
+
+.guess.active {
+  border-color: var(--color-primary-hex);
+}
+
+.guess.incorrect {
+  border-color: red;
+}
+
+.guess.correct {
+  border-color: limegreen;
+}
+
+.guess.empty {
+  background: #dfdfdf;
+}
+
+.text {
+  flex: 1;
+  text-align: center;
+}
+
+.icons {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  position: absolute;
+  right: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .guess.empty {
+    background: #333;
+  }
+}

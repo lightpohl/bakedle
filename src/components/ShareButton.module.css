@@ -1,0 +1,42 @@
+.shareButtonWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 320px;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.shareButtonWrapper > button {
+  all: unset;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  background: limegreen;
+  border-radius: var(--border-radius);
+  padding: 16px 32px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: var(--box-shadow);
+  font-weight: bolder;
+}
+
+.shareButtonWrapper > button:focus-visible {
+  cursor: pointer;
+  transform: rotate(-3deg);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .shareButtonWrapper > button:hover {
+    cursor: pointer;
+    transform: rotate(-3deg);
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .shareButtonWrapper > button:focus-visible,
+  .shareButtonWrapper > button:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,134 @@
+.numPad {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-gap: 8px;
+}
+
+.numPadButtonWrapper {
+  display: flex;
+}
+
+.numPadButtonWrapper > button {
+  all: unset;
+  box-sizing: border-box;
+  padding: 16px 32px;
+  background: white;
+  border: 2px solid var(--color-primary-hex);
+  border-radius: var(--border-radius);
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  box-shadow: var(--box-shadow);
+  font-weight: bolder;
+  flex: 1;
+}
+
+.numPadButtonWrapper > button:focus-visible {
+  background: rgba(var(--color-primary-raw-rgb), 0.2);
+  transform: scale(1.05);
+}
+
+.numPadButtonWrapper:last-of-type {
+  grid-column: span 2;
+}
+
+@keyframes blink1 {
+  from {
+    background: white;
+    transform: scale(1);
+  }
+
+  50% {
+    background: rgba(var(--color-primary-raw-rgb), 0.2);
+    transform: scale(1.05);
+  }
+
+  to {
+    background: white;
+    transform: scale(1);
+  }
+}
+
+@keyframes blink2 {
+  from {
+    background: white;
+    transform: scale(1);
+  }
+
+  50% {
+    background: rgba(var(--color-primary-raw-rgb), 0.2);
+    transform: scale(1.05);
+  }
+
+  to {
+    background: white;
+    transform: scale(1);
+  }
+}
+
+.numPadButtonWrapper.blink1 > button {
+  animation: blink1 0.3s ease-in-out;
+}
+
+.numPadButtonWrapper.blink2 > button {
+  animation: blink2 0.3s ease-in-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .numPadButtonWrapper > button:hover {
+    background: rgba(var(--color-primary-raw-rgb), 0.2);
+    transform: scale(1.05);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .numPadButtonWrapper > button {
+    background: black;
+  }
+
+  @keyframes blink1 {
+    from {
+      background: black;
+      transform: scale(1);
+    }
+
+    50% {
+      background: rgba(var(--color-primary-raw-rgb), 0.2);
+      transform: scale(1.05);
+    }
+
+    to {
+      background: black;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes blink2 {
+    from {
+      background: black;
+      transform: scale(1);
+    }
+
+    50% {
+      background: rgba(var(--color-primary-raw-rgb), 0.2);
+      transform: scale(1.05);
+    }
+
+    to {
+      background: black;
+      transform: scale(1);
+    }
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .numPadButtonWrapper > button:hover,
+  .numPadButtonWrapper > button:focus-visible {
+    transform: none;
+  }
+
+  .numPadButtonWrapper.blink1 > button,
+  .numPadButtonWrapper.blink2 > button {
+    animation: none;
+  }
+}

@@ -1,0 +1,90 @@
+html {
+  box-sizing: border-box;
+  background: white;
+  color: black;
+}
+
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: min(400px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+:root {
+  --color-primary-hex: #3b73b9;
+  --color-primary-raw-rgb: 59, 115, 185;
+  --border-radius: 6px;
+  --box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+caption,
+figcaption {
+  text-wrap: balance;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.bake-text {
+  color: var(--color-primary-hex);
+}
+
+.warning-text {
+  color: blueviolet;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color: white;
+    background: black;
+  }
+
+  :root {
+    --color-primary-hex: #89cff0;
+    --color-primary-raw-rgb: 137, 207, 240;
+  }
+
+  .warning-text {
+    color: yellow;
+  }
+}
