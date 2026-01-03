@@ -48,13 +48,25 @@ export const getGame = async (name: string) => {
   return res.json() as Promise<RawGame>;
 };
 
+const useDebugGameNumber = () => {
+  const debugGameNumber = useMemo(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get("debugGame");
+  }, []);
+
+  return debugGameNumber ? debugGameNumber.padStart(3, "0") : null;
+};
+
 export const useDailyGame = () => {
   const dateString = useDateString();
+  const debugGameNumber = useDebugGameNumber();
   const today = new Date(dateString);
 
   const timeDifference = today.getTime() - START_DATE.getTime();
   const dayDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
-  const gameNumber = `${dayDifference % GAME_COUNT}`.padStart(3, "0");
+  const gameNumber = debugGameNumber
+    ? debugGameNumber
+    : `${dayDifference % GAME_COUNT}`.padStart(3, "0");
 
   const { data, error, isLoading } = useQuery({
     queryKey: ["game", dateString],
